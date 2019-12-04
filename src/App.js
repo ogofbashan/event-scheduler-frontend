@@ -7,15 +7,15 @@ import Events from './views/events';
 
 
 function App() {
-  return(
+  return (
     <div className="App">
       <Header />
-      <Switch>
-        <div className="container">
+      <div className="container">
+        <Switch>
           <Route exact path='/' render={() => <Schedule />} />
-          <Route exact path='/events' render={() => <Events />} />
-        </div>
-      </Switch>
+          <Route exact path='/events' render={() => <Events />}/>
+        </Switch>
+      </div>
     </div>
   );
 }

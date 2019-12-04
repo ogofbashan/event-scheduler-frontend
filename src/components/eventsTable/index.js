@@ -1,13 +1,33 @@
 import React from 'react';
 import './index.css';
+import EventsTableItem from '../eventsTableItem';
 
-class EventsTable extends React.Component {
-  render() {
-    return (
-      <div className="EventsTable">
-        <h1>EventsTable</h1>
-      </div>
-    );
-  }
+function EventsTable(props) {
+  return (
+    <table className="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Date</th>
+          <th colSpan="2">Notes</th>
+          <th>Delete Event</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {
+          props.events &&
+            props.events.map( event =>
+              <EventsTableItem
+                event={event}
+                key={event.event_id}
+                deleteEvent={props.deleteEvent}
+              />
+            )
+        }
+      </tbody>
+    </table>
+  );
 }
+
 export default EventsTable;
